@@ -69,9 +69,10 @@ def st_header(data):
 
 
 def st_body():
-    lstmodel = listmodel("https://github.com/mullermu/SWG_Streamlit/tree/main/streamlitapp/model/")
-    
-    tmp = [i.split('.')[0] for i in lstmodel]
+   # lstmodel = listmodel("https://github.com/mullermu/SWG_Streamlit/tree/main/streamlitapp/model/")
+    appPath = 'SWG_Streamlit/tree/main/streamlitapp/model/';
+    fi = new FilesystemIterator(appPath . 'github.com/mullermu/SWG_Streamlit/tree/main/streamlitapp/model/', FilesystemIterator::SKIP_DOTS);
+    tmp = [i.split('.')[0] for i in fi]
     col1, col2, col3 = st.columns([1,10,1])
     with col2 :
         with st.form(key='my_form'):
