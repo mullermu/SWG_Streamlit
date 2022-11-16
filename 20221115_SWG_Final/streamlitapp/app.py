@@ -71,7 +71,7 @@ def st_header(data):
 def st_body():
     lstmodel = listmodel("../model/")
     
-    tmp = [i.split('.')[0] for i in os.listdir(lstmodel)]
+    tmp = [i.split('.')[0] for i in lstmodel]
     col1, col2, col3 = st.columns([1,10,1])
     with col2 :
         with st.form(key='my_form'):
