@@ -69,9 +69,9 @@ def st_header(data):
 
 
 def st_body():
-    #lstmodel = listmodel("../model/")
+    lstmodel = listmodel("../model/")
     
-    tmp = [i.split('.')[0] for i in os.listdir("../model/")]
+    tmp = [i.split('.')[0] for i in os.listdir(lstmodel)]
     col1, col2, col3 = st.columns([1,10,1])
     with col2 :
         with st.form(key='my_form'):
@@ -79,7 +79,7 @@ def st_body():
             submitted = st.form_submit_button('selected model and predict')
             if submitted:
                 st.write('You selected model: {}'.format(str(option)))
-                # return lstmodel
+                return lstmodel
                 
 
 def st_result(clf):
