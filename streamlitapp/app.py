@@ -69,7 +69,7 @@ def st_header(data):
 
 
 def st_body():
-    lstmodel = listmodel("model/")
+    lstmodel = listmodel("https://github.com/mullermu/SWG_Streamlit/tree/main/streamlitapp/model/")
     
     tmp = [i.split('.')[0] for i in lstmodel]
     col1, col2, col3 = st.columns([1,10,1])
