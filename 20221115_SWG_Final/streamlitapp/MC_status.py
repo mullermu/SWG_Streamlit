@@ -18,6 +18,7 @@ class MC_status(object):
 
         def read_machine_status(MCName):
             path_sheet  = f"../output/Predicted Results/{MCName}.csv"
+            st.write("Hi There")
             # read_files = get_file(path_sheet)
             # for i,file in enumerate(tqdm(read_files)):
                 # filename = file.split("/")[-1].split(".")[0]
