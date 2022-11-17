@@ -68,17 +68,17 @@ def st_header(data):
 
 
 
-def st_body():
-    lstmodel = listmodel(__DIR__ . '/model/')
-    tmp = [i.split('.')[0] for i in lstmodel]
-    col1, col2, col3 = st.columns([1,10,1])
-    with col2 :
-        with st.form(key='my_form'):
-            option = st.selectbox('Select Model:',tmp,key="my_option")
-            submitted = st.form_submit_button('selected model and predict')
-            if submitted:
-                st.write('You selected model: {}'.format(str(option)))
-                return lstmodel
+#def st_body():
+   # lstmodel = listmodel(__DIR__ . '/model/')
+   # tmp = [i.split('.')[0] for i in lstmodel]
+   # col1, col2, col3 = st.columns([1,10,1])
+   # with col2 :
+    #    with st.form(key='my_form'):
+    #        option = st.selectbox('Select Model:',tmp,key="my_option")
+    #        submitted = st.form_submit_button('selected model and predict')
+    #        if submitted:
+     #           st.write('You selected model: {}'.format(str(option)))
+     #           return lstmodel
                 
 
 def st_result(clf):
@@ -131,7 +131,7 @@ def main():
     with st.sidebar:  
             data = None
             data = st_header(data)
-            clf = st_body()
+            clf = '1' #st_body()
             if clf is not None and data is True:
                 st_result(clf)
                 download_results()
