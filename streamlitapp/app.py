@@ -70,7 +70,7 @@ def st_result(data,clf):
         else:
             model = joblib.load(f"AdaBoostClassifier.model")
            
-        z = model.predict(X)
+        z = model.predict(data)
         res = pd.concat([data,pd.DataFrame(z,columns=['Status'])],axis=1)
         col1, col2, col3 = st.columns([1,1,1])
         with col2 :
