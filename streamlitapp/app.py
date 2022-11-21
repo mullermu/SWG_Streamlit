@@ -16,9 +16,9 @@ def get_csv(df):
 def form_callback():
     st.write(st.session_state.my_option)
     st.write(st.session_state.my_checkbox)
-def listmodel(path:str = "./model"):
+# def listmodel(path:str = "./model"):
     
-    return os.listdir(path)
+#     return os.listdir(path)
 
 
 def st_header(data):
@@ -43,18 +43,18 @@ def st_header(data):
 
 
 def st_body():
-    lstmodel = listmodel("./model")
+    # lstmodel = listmodel("./model")
     
-    tmp = [i.split('.')[0] for i in lstmodel]
+    # tmp = [i.split('.')[0] for i in lstmodel]
     col1, col2, col3 = st.columns([1,10,1])
     with col2 :
         with st.form(key='my_form'):
-            option = st.selectbox('Select Model:',tmp,key="my_option")
+            option = st.selectbox('Select Model:',['GradientBoostingClassifier'],key="my_option")
             
             submitted = st.form_submit_button('Submit')
             if submitted:
                 st.write('You selected model: {}'.format(str(option)))
-    return lstmodel[tmp.index(option)]
+    # return lstmodel[tmp.index(option)]
 
 def st_result(data,clf):
     import swg
@@ -64,12 +64,12 @@ def st_result(data,clf):
         rs = swg.Swg(data)
         X = rs.scale()
         
-        model = joblib.load(os.path.join("./model",clf))
+        model = joblib.load("GradientBoostingClassifier.model")
         z = model.predict(X)
         res = pd.concat([data,pd.DataFrame(z,columns=['Status'])],axis=1)
         col1, col2, col3 = st.columns([1,1,1])
         with col2 :
-            st.download_button("Download Classification File",get_csv(res),"../output/result_app.csv")
+            st.download_button("Download Classification File",get_csv(res),"result_app.csv")
     
     
 def main():
