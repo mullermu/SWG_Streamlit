@@ -54,7 +54,7 @@ def st_body():
             submitted = st.form_submit_button('Submit')
             if submitted:
                 st.write('You selected model: {}'.format(str(option)))
-     return option
+                return option
 
 def st_result(data,clf):
     import swg
