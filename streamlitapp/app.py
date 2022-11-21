@@ -54,7 +54,7 @@ def st_body():
             submitted = st.form_submit_button('Submit')
             if submitted:
                 st.write('You selected model: {}'.format(str(option)))
-     return option
+     return option.index
 
 def st_result(data,clf):
     import swg
@@ -64,9 +64,9 @@ def st_result(data,clf):
         rs = swg.Swg(data)
         X = rs.scale()
         
-        if st_body() == 'AdaBoostClassifier':
+        if st_body() == 0:
             model = joblib.load(f"AdaBoostClassifier.model")
-        elif st_body() == 'RandomForestClassifier':
+        elif st_body() == 1:
             model = joblib.load(f"RandomForestClassifier.model")
         else:
             model = joblib.load(f"RandomForestClassifier.model")
