@@ -64,7 +64,7 @@ def st_result(data,clf):
         rs = swg.Swg(data)
         X = rs.scale()
         
-        model = joblib.load(f'GradientBoostingClassifier.model')
+        model = joblib.load(f'AdaBoostClassifier.model')
         z = model.predict(data)
         res = pd.concat([data,pd.DataFrame(z,columns=['Status'])],axis=1)
         col1, col2, col3 = st.columns([1,1,1])
