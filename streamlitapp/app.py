@@ -49,7 +49,7 @@ def st_body():
     col1, col2, col3 = st.columns([1,10,1])
     with col2 :
         with st.form(key='my_form'):
-            option = st.selectbox('Select Model:',['RandomForestClassifier'],key="my_option")
+            option = st.selectbox('Select Model:',['AdaBoostClassifier','RandomForestClassifier'],key="my_option")
             
             submitted = st.form_submit_button('Submit')
             if submitted:
@@ -68,7 +68,7 @@ def st_result(data,clf):
         elif clf == 'RandomForestClassifier':
             model = joblib.load(f"RandomForestClassifier.model")
         else:
-            model = joblib.load(f"RandomForestClassifier.model")
+            model = joblib.load(f"AdaBoostClassifier.model")
         res = pd.concat([data,pd.DataFrame(z,columns=['Status'])],axis=1)
         col1, col2, col3 = st.columns([1,1,1])
         with col2 :
